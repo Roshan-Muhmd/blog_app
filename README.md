@@ -55,7 +55,7 @@ Before running this application, make sure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Roshan-Muhmd/blog_app.git
 cd blog_app
 ```
 
@@ -65,25 +65,15 @@ cd blog_app
 npm install
 ```
 
-### 3. Environment Setup
 
-Create a `.env.local` file in the root directory:
-
-```env
-MONGODB_URI=mongodb+srv://your-username:your-password@cluster0.mongodb.net/blog-app?retryWrites=true&w=majority
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-NEXTAUTH_SECRET=your-nextauth-secret-key-change-this-in-production
-NEXTAUTH_URL=http://localhost:3000
-```
-
-### 4. Database Setup
+### 3. Database Setup
 
 1. Create a MongoDB Atlas account or use local MongoDB
 2. Create a new database named `blog-app`
 3. Update the `MONGODB_URI` in your `.env.local` file
 4. The application will automatically create the required collections
 
-### 5. Run the Development Server
+### 4. Run the Development Server
 
 ```bash
 npm run dev

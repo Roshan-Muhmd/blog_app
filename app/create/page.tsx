@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import { useAuth } from '@/components/AuthProvider';
@@ -16,11 +16,12 @@ export default function CreatePostPage() {
   const { user, token } = useAuth();
   const router = useRouter();
 
-  // Redirect if not authenticated
-  if (!user) {
-    router.push('/login');
-    return null;
-  }
+  // ✅ Redirect inside useEffect to prevent hydration issues
+  useEffect(() => {
+    if (!user) {
+      router.push('/login');
+    }
+  }, [user, router]);
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -74,6 +75,11 @@ export default function CreatePostPage() {
       setLoading(false);
     }
   };
+
+  // Prevent showing the form while redirecting
+  if (!user) {
+    return null;
+  }
 
   return (
     <div>
