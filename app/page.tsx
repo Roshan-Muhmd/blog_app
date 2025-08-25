@@ -61,7 +61,7 @@ export default function HomePage() {
 
   useEffect(() => {
     fetchPosts(currentPage, searchTerm);
-  }, [currentPage, searchTerm]);
+  }, [currentPage, /* searchTerm */]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
